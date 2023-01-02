@@ -6,11 +6,7 @@ Made by <img src="logo.png" width="60" margin alt="Miso"> with ❤️
 
 A terraform module to deploy the External Secrets Operator on Amazon EKS cluster.
 
-### Helm
-
-Deploy helm chart by helm (default method, set `enabled = true`)
-
-### Usage
+### Installing
 
 You can use this module as follows:
 
@@ -32,3 +28,6 @@ module "external_secrets_operator" {
 }
 
 ```
+
+### Usage
+You can refer to this documentation to learn more about extern-secrets-operator [here](https://external-secrets.io/)
