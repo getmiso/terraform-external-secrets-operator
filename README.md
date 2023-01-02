@@ -8,7 +8,7 @@ A terraform module to deploy the External Secrets Operator on Amazon EKS cluster
 
 ### Installing
 
-You can use this module as follows:
+You can install this module as follows:
 
 ```tf
 locals {
@@ -30,4 +30,4 @@ module "external_secrets_operator" {
 ```
 
 ### Usage
-You can refer to this documentation to learn more about extern-secrets-operator [here](https://external-secrets.io/)
+You can refer to this documentation to learn more about external-secrets-operator [here](https://external-secrets.io/)
