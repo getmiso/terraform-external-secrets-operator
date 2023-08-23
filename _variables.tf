@@ -1,7 +1,12 @@
-variable "enabled" {
-  type        = bool
-  default     = true
-  description = "Variable indicating whether deployment is enabled."
+variable "cluster_name" {
+  type     = string
+  nullable = false
+}
+
+variable "cluster_identity_oidc_issuer" {
+  type        = string
+  description = "The OIDC Identity issuer for the cluster"
+  nullable = false
 }
 
 variable "helm_chart_name" {
@@ -38,12 +43,6 @@ variable "namespace" {
   type        = string
   default     = "external-secrets"
   description = "The K8s namespace in which the external-secrets will be installed"
-}
-
-variable "settings" {
-  type        = map(any)
-  default     = {}
-  description = "Additional settings which will be passed to the Helm chart values, see https://github.com/external-secrets/external-secrets/tree/main/deploy/charts/external-secrets#values"
 }
 
 variable "values" {

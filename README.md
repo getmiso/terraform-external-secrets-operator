@@ -22,7 +22,8 @@ locals {
 }
 module "external_secrets_operator" {
   source = "git::https://github.com/getmiso/terraform-external-secrets-operator.git"
-  enabled           = true
+  cluster_name="cluster_name"
+  cluster_identity_oidc_issuer="issuer url"
   helm_release_name = "external-secrets-operator"
   values = yamlencode(local.values)
 }
@@ -30,4 +31,5 @@ module "external_secrets_operator" {
 ```
 
 ### Usage
+
 You can refer to this documentation to learn more about external-secrets-operator [here](https://external-secrets.io/)

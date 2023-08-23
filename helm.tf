@@ -1,5 +1,4 @@
 resource "helm_release" "external_secrets_operator" {
-  count            = var.enabled ? 1 : 0
   chart            = var.helm_chart_name
   create_namespace = var.helm_create_namespace
   namespace        = var.namespace
@@ -11,11 +10,16 @@ resource "helm_release" "external_secrets_operator" {
     var.values
   ]
 
-  dynamic "set" {
-    for_each = var.settings
-    content {
-      name  = set.key
-      value = set.value
-    }
+  set {
+    name  = "serviceAccount.create"
+    value = true
+  }
+  set {
+    name  = "serviceAccount.name"
+    value = "external-secrets-operator"
+  }
+  set {
+    name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
+    value = aws_iam_role.this.arn
   }
 }
